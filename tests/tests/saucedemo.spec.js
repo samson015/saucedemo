@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-// Test: Successful login and navigation
+// 1. Test: Successful login and navigation
 test('Standard user login and product interactions', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
   await page.locator('[data-test="username"]').fill('standard_user');
@@ -25,7 +25,7 @@ test('Standard user login and product interactions', async ({ page }) => {
   await page.locator('[data-test="logout-sidebar-link"]').click();
 });
 
-// Test: Locked out user should see error
+// 2. Test: Locked out user should see error
 test('Locked out user login attempt', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
   await page.locator('[data-test="username"]').fill('locked_out_user');
@@ -34,7 +34,7 @@ test('Locked out user login attempt', async ({ page }) => {
   await expect(page.locator('[data-test="error"]')).toBeVisible();
 });
 
-// Test: Problem user brings duplicated or broken images
+// 3. Test: Problem user brings duplicated or broken images
 test('Problem user renders incorrect images', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
   await page.locator('[data-test="username"]').fill('problem_user');
@@ -53,7 +53,7 @@ test('Problem user renders incorrect images', async ({ page }) => {
   await page.locator('[data-test="logout-sidebar-link"]').click();
 });
 
-// Test: Performance glitch user with slow loading behavior
+// 4. Test: Performance glitch user with slow loading behavior
 test('Performance glitch user has delayed UI', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
   await page.locator('[data-test="username"]').fill('performance_glitch_user');
@@ -66,7 +66,7 @@ test('Performance glitch user has delayed UI', async ({ page }) => {
   await page.locator('[data-test="product-sort-container"]').selectOption('lohi');
 });
 
-// Test: Error user cannot add to cart properly
+// 5. Test: Error user cannot add to cart properly
 test('Error user add-to-cart failures', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
   await page.locator('[data-test="username"]').fill('error_user');
@@ -84,7 +84,7 @@ test('Error user add-to-cart failures', async ({ page }) => {
   await page.locator('[data-test="logout-sidebar-link"]').click();
 });
 
-// Test: Visual bug user with broken images
+// 6. Test: Visual bug user with broken images
 test('Visual user sees image glitches', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
   await page.locator('[data-test="username"]').fill('visual_user');
