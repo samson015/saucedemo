@@ -1,4 +1,4 @@
-SauceDemo Automation Project
+SauceDemo Automation Project using playwright automation framework (javascript)
 This repository contains an automated testing solution for saucedemo.com, a sample e-commerce website. The project aims to demonstrate robust test automation practices using industry-standard tools and frameworks.
 Features
 User Login: Tests successful and unsuccessful login scenarios.
